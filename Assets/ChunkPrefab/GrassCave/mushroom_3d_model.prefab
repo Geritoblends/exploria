@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6114956274527618225}
   - component: {fileID: 7119270568770548138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
