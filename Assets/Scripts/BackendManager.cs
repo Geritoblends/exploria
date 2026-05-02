@@ -10,8 +10,7 @@ public class BackendManager : MonoBehaviour
     public static BackendManager instance;
 
     [Header("Configuración")]
-    // public string baseUrl = "https://aulify-api.frontten.dpdns.org"; 
-    private string baseUrl = "http://localhost:4000";
+    private string baseUrl = "https://exploria-backend.frontten.dpdns.org";
     public bool useDevelopmentUrl = true;
 
     private string sessionToken;
@@ -519,8 +518,16 @@ void Awake()
                 
                 ReintentarNivel reintentar = UnityEngine.Object.FindFirstObjectByType<ReintentarNivel>();
                 if (reintentar != null) reintentar.Reintentar();
+            } else {
+                if (MensajesUI.instancia != null) {
+                    if (code == 0 || (code >= 500 && code < 600)) {
+                        MensajesUI.instancia.Mostrar(MensajesUI.instancia.imgAviso); // Connection error
+                    } else {
+                        MensajesUI.instancia.Mostrar(MensajesUI.instancia.imgError); // Insufficient coins or other error
+                    }
+                }
             }
-        }));
+        }, true));
     }
 
     public void PublicExchangeCoinsForGems(int coinAmount)

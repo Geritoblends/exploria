@@ -37,16 +37,28 @@ public class AulifyUIHandler : MonoBehaviour
             BackendManager.instance.LinkAulify(email, pass, (success, error) => {
                 if (success)
                 {
-                    Debug.Log("Link successful! Fetching sticker...");
-                    if (stickerUI != null)
+                    Debug.Log("Link successful! Loading main scene...");
+                    
+                    // Trigger logic similar to LogicaBotones.CargarEscena(0)
+                    LogicaBotones logica = Object.FindFirstObjectByType<LogicaBotones>();
+                    if (logica != null)
                     {
-                        stickerUI.FetchAndShowSticker();
+                        logica.CargarEscena(0);
+                    }
+                    else
+                    {
+                        // Fallback if LogicaBotones is not in scene
+                        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
                     }
                 }
                 else
                 {
                     Debug.LogError("Link failed: " + error);
-                    // Optionally show an error message to the user here
+                    // Show warning message as requested
+                    if (MensajesUI.instancia != null)
+                    {
+                        MensajesUI.instancia.Mostrar(MensajesUI.instancia.imgAviso);
+                    }
                 }
             });
         }
