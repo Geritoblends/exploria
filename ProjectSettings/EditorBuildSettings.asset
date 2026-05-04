@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 8efc605298f701245841bfb3a392e5e1
   - enabled: 1
+    path: Assets/Scenes/Personajes.unity
+    guid: de684af4b77283147bac78cb12b783e3
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 9deaaa89ed66f1f47b23e133990f24e8
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: b4712a2c653969c41a55938ec8a6e635
   - enabled: 0
     path: Assets/Scenes/Tienda.unity
     guid: 0184d66049c24dd4cadde00e4bf1fe89
-  - enabled: 1
-    path: Assets/Scenes/LoginScene.unity
-    guid: 9deaaa89ed66f1f47b23e133990f24e8
   - enabled: 1
     path: Assets/Scenes/CuevaTierra.unity
     guid: aca2a84dec0ffdc45853eac90c567a62
@@ -47,9 +50,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/T_Mascotas.unity
     guid: 3cb8bc73ad80d034f8efd253d1a25db5
-  - enabled: 1
-    path: Assets/Scenes/Personajes.unity
-    guid: de684af4b77283147bac78cb12b783e3
   - enabled: 1
     path: Assets/Scenes/T_AuliCoins.unity
     guid: 1b9732aab8d050d46bd446c3bc55875f
