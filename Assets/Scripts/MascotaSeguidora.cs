@@ -39,14 +39,13 @@ public class MascotaSeguidora : MonoBehaviour {
         }
     }
 
-    void Update() {
-        if (GameManager.instance != null && !GameManager.instance.isGameActive) return;
+void Update() {
+    if (GameManager.instance != null && !GameManager.instance.isGameActive) return;
 
-        // Si está encendida, sigue al punto con suavidad
-        if (objetivo != null) {
-            transform.position = Vector3.Lerp(transform.position, objetivo.position, velocidad * Time.deltaTime);
-            // Que siempre mire hacia adelante
-            transform.rotation = Quaternion.Lerp(transform.rotation, objetivo.rotation, velocidad * Time.deltaTime);
-        }
+    // Posición y rotación exactas e instantáneas
+    if (objetivo != null) {
+        transform.position = objetivo.position;
+        transform.rotation = objetivo.rotation;
     }
+}
 }
