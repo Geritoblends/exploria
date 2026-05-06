@@ -200,6 +200,10 @@ void Awake()
         currentCoins = data.current_coins;
         playerEmail = data.aulify_email;
 
+        // Sync to local PlayerPrefs for UI and game logic consistency
+        PlayerPrefs.SetInt("GemasTotales", currentGems);
+        PlayerPrefs.Save();
+
         // Start session as soon as we have a valid player, but only ONCE
         StartSession();
 
@@ -538,6 +542,8 @@ void Awake()
         StartCoroutine(PostWithQueue("/api/economy/exchange", body, (success, code) => {
             if (success) {
                 if (MensajesUI.instancia != null) MensajesUI.instancia.Mostrar(MensajesUI.instancia.imgExito);
+                // Refresh profile to get updated totals (coins spent, gems added)
+                StartCoroutine(SyncPlayerProfile());
             } else {
                 if (MensajesUI.instancia != null) {
                     // code 0 = Timeout/Connection Error, 5xx = Server Error
